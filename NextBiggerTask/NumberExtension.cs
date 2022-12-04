@@ -19,7 +19,7 @@ namespace NextBiggerTask
             // 1st step - searching for the biggest digit from right to left.
             int numberCopy = number;
             int remainder = 0;
-            int previousRemainder = 0;
+            int previousRemainder;
             int tens = 10;
             for (; tens <= numberCopy * 10; tens *= 10)
             {
