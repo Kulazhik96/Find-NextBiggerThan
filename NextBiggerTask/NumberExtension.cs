@@ -41,9 +41,14 @@ namespace NextBiggerTask
 
             // 2nd step - check for possible less values.
             int remainderToCheck = numberCopy % tens;
+            if (remainderToCheck == number)
+            {
+                return null;
+            }
+
             for (int outerDigit = 10; outerDigit <= tens; outerDigit *= 10)
             {
-                int mostLeft = remainderToCheck % 10;
+                int mostLeft = (remainderToCheck % 10);
                 for (int innerDigit = 100; innerDigit < tens; innerDigit *= 10)
                 {
                     int compareWithMostLeft = (remainderToCheck % innerDigit) / (innerDigit / 10);
@@ -51,7 +56,7 @@ namespace NextBiggerTask
                     {
                         int additionalRemainder = remainderToCheck % (innerDigit / 100);
                         remainderToCheck -= remainderToCheck % innerDigit;
-                        remainderToCheck += (mostLeft * (innerDigit / 10)) + (compareWithMostLeft * (innerDigit / 100)) + additionalRemainder;
+                        remainderToCheck += mostLeft * (innerDigit / 10) + compareWithMostLeft * (innerDigit / 100) + additionalRemainder;
                     }
                 }
             }

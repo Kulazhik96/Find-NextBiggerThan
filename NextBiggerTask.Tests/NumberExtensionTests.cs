@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using NUnit.Framework;
 using static NextBiggerTask.NumberExtension;
 
@@ -17,6 +17,9 @@ namespace NextBiggerTask.Tests
         [TestCase(1234126, ExpectedResult = 1234162)]
         [TestCase(3456432, ExpectedResult = 3462345)]
         [TestCase(124121133, ExpectedResult = 124121313)]
+
+        // Extra tests.
+        [TestCase(2_001_450, ExpectedResult = 2_001_504)]
         public int? NextBiggerThan_NextBiggerNumberExists(int number)
             => NextBiggerThan(number);
 
